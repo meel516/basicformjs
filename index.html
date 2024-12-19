@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schema-based Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form class="form">
+            <h2>Registration Form</h2>
+            
+            <!-- Basic Information -->
+            <div class="form-group" data-group="basic">
+                <div class="form-field">
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-field">
+                    <label>Email</label>
+                    <input type="number" name="email" required>
+                    <span class="error-message"></span>
+                </div>
+            </div>
+
+            <!-- Conditional Fields Toggle -->
+            <div class="form-group">
+                <div class="form-field">
+                    <label>
+                        <input type="checkbox" name="showAddress" data-toggle="address">
+                        Add Address Information
+                    </label>
+                </div>
+            </div>
+
+            <!-- Address Fields (Conditional) -->
+            <div class="form-group hidden" data-group="address">
+                <div class="form-field">
+                    <label>Street</label>
+                    <input type="text" name="street" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-field">
+                    <label>City</label>
+                    <input type="text" name="city" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-field">
+                    <label>Zip Code</label>
+                    <input type="text" name="zipcode" required>
+                    <span class="error-message"></span>
+                </div>
+              <div class="form-field">
+                <select name="cars" id="cars" required>
+  <option value="" disabled selected>Select a car</option>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+</select>
+              </div>
+
+              
+
+            </div>
+             <!--Money Fields (Conditional) -->
+           <div class="form-group">
+                <div class="form-field">
+                    <label>
+                        <input type="checkbox" name="showPayment" data-toggle="payment">
+                        Add Payment Information
+                    </label>
+                </div>
+            </div>
+           <div class="form-group hidden" data-group="payment">
+                <div class="form-field">
+                    <label>payment</label>
+                    <input type="text" name="amount" required>
+                    <span class="error-message"></span>
+                </div>
+
+           
+
+              
+
+            </div>
+
+            <button type="submit" class="submit-btn" disabled>Submit</button>
+        </form>
+    </div>
+    <script type="module" src="formSchema.js"></script>
+    <script type="module" src="formValidator.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
